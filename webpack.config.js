@@ -7,7 +7,7 @@ module.exports = withModuleFederationPlugin({
   exposes: {
    // './Component': './src/app/app.component.ts',
    //'./Component': './src/app/claims/claims.component.ts',
-   './Module': './src/app/claims/claims.module.ts',
+   './PaymentModule': './src/app/claims/claims.module.ts',
    //'./Module': './src/app/app.routes.ts'
   },
 
