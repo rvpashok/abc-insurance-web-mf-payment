@@ -5,10 +5,7 @@ module.exports = withModuleFederationPlugin({
   name: 'web-mf-payment',
 
   exposes: {
-   // './Component': './src/app/app.component.ts',
-   //'./Component': './src/app/claims/claims.component.ts',
-   './PaymentModule': './src/app/claims/claims.module.ts',
-   //'./Module': './src/app/app.routes.ts'
+   './PaymentModule': './src/app/claims/claims.module.ts'
   },
 
   shared: {
