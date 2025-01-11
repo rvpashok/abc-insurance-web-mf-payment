@@ -1,8 +1,8 @@
 import { RouterModule, Routes } from '@angular/router';
-import { ClaimsComponent } from './claims/claims.component';
+import { PayPremiumComponent } from './pay-premium/pay-premium.component';
 
 export const routes: Routes = [
     {
-        path: "claim", component: ClaimsComponent
+        path: "pay", component: PayPremiumComponent
     }
 ];

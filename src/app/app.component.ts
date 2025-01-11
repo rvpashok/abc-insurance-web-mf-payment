@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ClaimsModule } from './claims/claims.module';
+import { PayPremiumComponent } from './pay-premium/pay-premium.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ClaimsModule],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'web-mf-payment';
+  title = 'abc-insurance-web-mf-payment';
 
   constructor(){
     console.log("APP Component contructor called !!!!");

@@ -1,0 +1,121 @@
+<div style="width: 90%; margin-left: 8%;margin-top: 3%;">
+    <div *ngIf="!insuranceDetails">
+        <p-card header="">
+            <h1>Premium Due Payment</h1>
+        </p-card>
+    </div>
+    <div *ngIf="insuranceDetails">
+        <p-card header="">
+            <h1>Premium Due Payment</h1>
+        </p-card>
+        <div class="grid" style="margin-top:1rem">
+            <div class="col-12 sm:col-7 lg:col-7">
+                <p-card header="Policy Summary">
+                    <div class="grid">
+                        <div class="col-12 sm:col-6 lg:col-4 text-left">
+                            <label for="policy-number">Policy Number </label>
+                        </div>
+                        <div class="col-12 sm:col-6 lg:col-5">
+                            <input pInputText id="policy-number" [disabled]="true" [(ngModel)]="insuranceDetails.policyDetails.policyId" /> 
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="col-12 sm:col-6 lg:col-4 text-left">
+                            <label  for="policy-start-date">Start Date </label>
+                        </div>
+                        <div class="col-12 sm:col-6 lg:col-5">
+                            <input pInputText id="policy-start-date" [disabled]="true" [(ngModel)]="insuranceDetails.policyDetails.startDate" /> 
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="col-12 sm:col-6 lg:col-4 text-left">
+                            <label for="policy-status">Status </label>
+                        </div>
+                        <div class="col-12 sm:col-6 lg:col-5">
+                            <input pInputText id="policy-status" [disabled]="true" [(ngModel)]="insuranceDetails.policyDetails.policyStatus" />
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="col-12 sm:col-6 lg:col-4 text-left">
+                            <label for="policy-expiry-date">End Date </label>
+                        </div>
+                        <div class="col-12 sm:col-6 lg:col-5">
+                            <input pInputText id="policy-expiry-date" [disabled]="true" [(ngModel)]="insuranceDetails.policyDetails.expiryDate" />
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="col-12 sm:col-6 lg:col-4 text-left">
+                            <label for="policy-premium-amount">Premium Amount </label>
+                        </div>
+                        <div class="col-12 sm:col-6 lg:col-5">
+                            <input pInputText id="policy-premium-amount" [disabled]="true" [(ngModel)]="insuranceDetails.policyDetails.premiumAmount" />
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="col-12 sm:col-6 lg:col-4 text-left">
+                            <label for="next-premium-date">Next Premium Date </label>
+                        </div>
+                        <div class="col-12 sm:col-6 lg:col-5">
+                            <input pInputText id="next-premium-date" [disabled]="true" [(ngModel)]="insuranceDetails.policyDetails.nextPremiumDate" />
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="col-12 sm:col-6 lg:col-4 text-left">
+                            <label for="premium-frequency">Premium Frequency </label>
+                        </div>
+                        <div class="col-12 sm:col-6 lg:col-5">
+                            <input pInputText id="premium-frequency" [disabled]="true" [(ngModel)]="insuranceDetails.policyDetails.premiumFrequency" />
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="col-12 sm:col-6 lg:col-4 text-left">
+                            <label for="policy-type">Policy Type </label>
+                        </div>
+                        <div class="col-12 sm:col-6 lg:col-5">
+                            <input pInputText id="policy-type" [disabled]="true" [(ngModel)]="insuranceDetails.policyDetails.type" />
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+            <div class="col-12 sm:col-5 lg:col-5">
+                <div>
+                    <p-card header="Payment Summary">
+                        <div class="grid">
+                            <div class="col-12 sm:col-6 lg:col-4 text-left">
+                                <label for="policy-number">Premium Amount </label>
+                            </div>
+                            <div class="col-12 sm:col-6 lg:col-5">
+                                <input pInputText id="policy-number" [disabled]="true" [(ngModel)]="insuranceDetails.policyDetails.premiumAmount" /> 
+                            </div>
+                        </div>
+                        <div class="grid">
+                            <div class="col-12 sm:col-6 lg:col-4 text-left">
+                                <label for="policy-premium-amount">Tax Amount (5%) </label>
+                            </div>
+                            <div class="col-12 sm:col-6 lg:col-5">
+                                <input pInputText id="policy-premium-amount" [disabled]="true" [(ngModel)]="this.taxAmount" />
+                            </div>
+                        </div>
+                        <p-divider />
+                        <div class="grid">
+                            <div class="col-12 sm:col-6 lg:col-4 text-left">
+                                <label for="policy-premium-amount">Total Amount Payable </label>
+                            </div>
+                            <div class="col-12 sm:col-6 lg:col-5">
+                                <input pInputText id="policy-premium-amount" [disabled]="true" [(ngModel)]="this.totalPayableAmount" />
+                            </div>
+                        </div>
+                        <p-divider />
+                        <div class="grid">
+                            <div class="col-12 sm:col-12 lg:col-12">
+                                <p-button label="Pay" severity="info" />
+                            </div>
+                        </div>
+                    </p-card>
+                </div>
+            </div>
+        </div>  
+    </div>
+    
+</div>
+
