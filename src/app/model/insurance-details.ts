@@ -1,3 +1,5 @@
+import { PolicyType } from "./common-models";
+
 export class InsuranceDetails {
     'policyDetails': PolicyDetails;
     'insuredDetails': InsuranceDetails;
@@ -7,13 +9,6 @@ export class InsuranceDetails {
     constructor(policyDetails: PolicyDetails){
         this.policyDetails=policyDetails;
     }
-  }
-
-  export enum PolicyType {
-    Health = "HEALTH",
-    Auto = "AUTO",
-    Life = "LIFE",
-    Term = "TERM"
   }
 
   export enum PolicyStatus {
@@ -115,4 +110,6 @@ export class InsuranceDetails {
         this.amount=amount;
     }
   }
+
+export { PolicyType };
 
