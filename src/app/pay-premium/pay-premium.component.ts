@@ -8,20 +8,23 @@ import { InsuranceDetails, PolicyType } from '../model/insurance-details';
 import { CommonService } from '../services/common.service';
 import { DividerModule } from 'primeng/divider';
 import { ActivatedRoute } from '@angular/router';
+import { DialogModule } from 'primeng/dialog';
 
 @Component({
   selector: 'app-pay-premium',
   standalone: true,
-  imports: [CardModule, ButtonModule, FormsModule, InputTextModule, DividerModule, CommonModule],
+  imports: [CardModule, ButtonModule, FormsModule, InputTextModule, DividerModule, CommonModule,
+    DialogModule
+  ],
   templateUrl: './pay-premium.component.html',
   styleUrl: './pay-premium.component.scss'
 })
 export class PayPremiumComponent implements OnInit {
 
-  policyDetails: object | undefined;
-  public insuranceDetails : InsuranceDetails | any;
+  policyDetails: { policyTypeName?: string, policyTypeDisplayName?: string } = {};  public insuranceDetails : InsuranceDetails | any;
   taxAmount: Number | any;
   totalPayableAmount: Number | any;
+  paymentModelVisible: boolean | any;
   constructor(private commonService: CommonService, private route: ActivatedRoute) {
     
   }
@@ -29,6 +32,7 @@ export class PayPremiumComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.queryParamMap.subscribe(params => {
+      this.paymentModelVisible = false;
       const type = params.get('type');
       var profileId = this.commonService.getItem("profileId");
       if (profileId) {
@@ -42,8 +46,8 @@ export class PayPremiumComponent implements OnInit {
       if(insuranceDetailsData !== null){
         this.insuranceDetails = JSON.parse(insuranceDetailsData?insuranceDetailsData: "");
         console.log("getDetails: " + this.insuranceDetails);
-        //this.getPolicyTypeInfo(this.insuranceDetails.policyDetails.type);
-        this.taxAmount = (this.insuranceDetails.policyDetails.premiumAmount)%5 ==0 ? 100 : 10;
+        this.getPolicyTypeInfo(this.insuranceDetails.policyDetails.type);
+        this.taxAmount = ((this.insuranceDetails.policyDetails.premiumAmount)*5)/100;
         this.totalPayableAmount = this.insuranceDetails.policyDetails.premiumAmount + this.taxAmount;
       }
       else {
@@ -52,4 +56,35 @@ export class PayPremiumComponent implements OnInit {
       }
     });
   }
+
+  getPolicyTypeInfo(type: PolicyType){
+    const toRet = this.policyDetails;
+    switch (type) {
+      case PolicyType.Health | 1:
+        toRet.policyTypeDisplayName = "Health Insurance";
+        toRet.policyTypeName = "HEALTH";
+        return toRet;
+      case PolicyType.Auto | 2:
+        toRet.policyTypeDisplayName = "Auto Insurance";
+        toRet.policyTypeName = "AUTO";
+        return toRet;
+      case PolicyType.Life | 3:
+        toRet.policyTypeDisplayName = "Life Insurance";
+        toRet.policyTypeName = "LIFE";
+        return toRet;
+      case PolicyType.Term | 4:
+        toRet.policyTypeDisplayName = "Term Insurance";
+        toRet.policyTypeName = "TERM";
+        return toRet;
+      default:
+        return "Unknown Policy Type";
+    }
+  }
+
+  payPremium(event: Event){
+    const el = event.currentTarget as HTMLInputElement;
+    console.log("Pay button Clicked")
+    this.paymentModelVisible = true;
+  }
+
 }

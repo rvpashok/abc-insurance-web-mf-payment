@@ -6,7 +6,7 @@
     </div>
     <div *ngIf="insuranceDetails">
         <p-card header="">
-            <h1>Premium Due Payment</h1>
+            <h1> {{policyDetails.policyTypeDisplayName}} Premium Due Payment</h1>
         </p-card>
         <div class="grid" style="margin-top:1rem">
             <div class="col-12 sm:col-7 lg:col-7">
@@ -72,7 +72,7 @@
                             <label for="policy-type">Policy Type </label>
                         </div>
                         <div class="col-12 sm:col-6 lg:col-5">
-                            <input pInputText id="policy-type" [disabled]="true" [(ngModel)]="insuranceDetails.policyDetails.type" />
+                            <input pInputText id="policy-type" [disabled]="true" [(ngModel)]="policyDetails.policyTypeName" />
                         </div>
                     </div>
                 </p-card>
@@ -108,13 +108,23 @@
                         <p-divider />
                         <div class="grid">
                             <div class="col-12 sm:col-12 lg:col-12">
-                                <p-button label="Pay" severity="info" />
+                                <p-button label="Pay" severity="info"  (onClick)="payPremium($event)" />
                             </div>
                         </div>
                     </p-card>
                 </div>
             </div>
         </div>  
+    </div>
+
+    <div>
+        <p-dialog header="Payment Process" [(visible)]="this.paymentModelVisible" [style]="{ width: '25rem' }">
+            <span class="p-text-secondary block mb-8">Payment Process Coming Soon</span>
+            <div class="flex justify-end gap-2">
+                <p-button label="Cancel" severity="secondary" (click)="this.paymentModelVisible = false" />
+                <p-button label="Proceed" (click)="this.paymentModelVisible = false" />
+            </div>
+        </p-dialog>
     </div>
     
 </div>
