@@ -1,11 +1,15 @@
-.grid label {
+// Variable for reusable value
+$margin-left: 1.5rem;
+
+.grid {
+  label {
     display: block;
     text-align: left;
-    margin-left: 1.5rem;
+    margin-left: $margin-left;
   }
 
-  .grid input {
+  input {
     margin-bottom: 0.5rem;
-    margin-left: 1.5rem;
+    margin-left: $margin-left;
   }
-
+}

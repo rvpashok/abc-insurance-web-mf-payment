@@ -1,7 +1,11 @@
-.body-content{
+// Variables for common styles
+$full-width: 100%;
+$z-index-level: 100;
+$padding-percentage: 3%;
+
+.body-content {
     text-align: center;
-    height: 100%;
-    /* margin-top: 10%; */
-    padding-top: 3%;
-    padding-bottom: 3%;
-}
+    height: $full-width; // 100% height
+    padding-top: $padding-percentage;
+    padding-bottom: $padding-percentage;
+  }
