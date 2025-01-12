@@ -3,10 +3,10 @@
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.0.
 
 ## Local Setup
-Install Node.JS
-Install Angular using `npm install -g @angular/cli`
-Open code editor and redirect to project folder `abc-insurance-web-mf-payment`
-Install required dependency modules using `npm install`
+Install Node.JS.    
+Install Angular using `npm install -g @angular/cli`.  
+Open code editor and redirect to project folder `abc-insurance-web-mf-payment`   
+Install required dependency modules using `npm install`   
 
 
 ## Development server
