@@ -25,6 +25,7 @@ export class PayPremiumComponent implements OnInit {
   taxAmount: Number | any;
   totalPayableAmount: Number | any;
   paymentModelVisible: boolean | any;
+  isAuthenticated: boolean | any;
   constructor(private commonService: CommonService, private route: ActivatedRoute) {
     
   }
@@ -33,9 +34,14 @@ export class PayPremiumComponent implements OnInit {
 
     this.route.queryParamMap.subscribe(params => {
       this.paymentModelVisible = false;
-      const type = params.get('type');
       var profileId = this.commonService.getItem("profileId");
+      if(!profileId || profileId === null || profileId == ""){
+        this.isAuthenticated = false;
+        throw Error("UnAuthorized");
+      }
+      const type = params.get('type');
       if (profileId) {
+        this.isAuthenticated = true;
         profileId = profileId.replace("auth0|", '');
         profileId = profileId.replace(/"/g, "");
       }

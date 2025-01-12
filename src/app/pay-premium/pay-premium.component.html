@@ -1,7 +1,13 @@
-<div style="width: 90%; margin-left: 8%;margin-top: 3%;">
+<div *ngIf="!isAuthenticated">
+    <p-card header="">
+        <h1>UnAuthorized Page. Login and ReTry</h1>
+    </p-card>
+</div>
+
+<div *ngIf="isAuthenticated" style="width: 90%; margin-left: 8%;margin-top: 3%;">
     <div *ngIf="!insuranceDetails">
         <p-card header="">
-            <h1>Premium Due Payment</h1>
+            <h1>No Insurance Details found for this user</h1>
         </p-card>
     </div>
     <div *ngIf="insuranceDetails">
